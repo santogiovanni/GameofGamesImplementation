@@ -1,2 +1,3 @@
-# GameofGamesImplementation
-Java classes for each game of games
+# Game of Games Implementation Dev Branch
+
+Beta versions of each game of games
