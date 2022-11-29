@@ -1,6 +1,6 @@
 /**
  * CPSC 340: Software Engineering
- * Thimble Picking
+ * Game 1: Thimble Picking
  * 
  * @author Stephen Antogiovanni
  * @version 1.0
@@ -11,9 +11,6 @@ import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
 import java.lang.Math;
-
-// S11: If the hands picked match, Player 1 gets a point. Display “User1 wins a point”; otherwise, Player 2 gets a point. Display “User2 wins a point”. If playing against computer, display “User1 loses”
-
 
 public class ThimblePicking {
 
@@ -28,7 +25,8 @@ public class ThimblePicking {
        
         int min_num_rounds = 1;
         int number_rounds = 0;
-
+        int user_points = 0;
+        int computer_points = 0;
         boolean flag_1 = true;
 
         while (flag_1) {
@@ -36,108 +34,94 @@ public class ThimblePicking {
             System.out.println("How many rounds do you want to play ? You will play to the best of that number of rounds. Number of rounds must be odd.\n");
             number_rounds = sc.nextInt();
 
+            // checking for negative number or even input
             if (number_rounds < min_num_rounds || number_rounds % 2 == 0){
                 System.out.println("\nInsert Positive and Odd Integer\n");
             }
             else flag_1 = false;
         }
        
-
-        int user_points = 0;
-        int computer_points = 0;
-
-        //System.out.println("number of rounds: " + number_rounds);
-
         for (int i=1; i<=number_rounds; i++){
 
-            System.out.println("\nRound " + i + "\n"); 
-
-            System.out.println("Pick a hand. Insert 1 for left hand and 0 for right hand\n");
-
-            int hand_choice = sc.nextInt();
-
-            sc.close();
-
-            if (hand_choice == 0){
-
-                System.out.println("You chose the right hand\n");
-            }
-
-            else if (hand_choice == 1) {
-
-                System.out.println("You chose the left hand\n");
-            }
-
-
-            System.out.println("Guess what hand the thimble is in. Insert 1 for left hand and 0 for right hand.\n");
-
-            Random rand = new Random();
+            int hand_choice = 0;
+            int randomNum = 0;
             int max_num = 2;
-            int randomNum = rand.nextInt(max_num);
+            boolean flag_2 = true;
+            boolean flag_3 = true;
 
+            System.out.println("\nRound " + i + "\n"); 
+            
+            while (flag_2){
 
-            if (randomNum == 0){
+                System.out.println("Pick a hand. Insert 1 for left hand and 0 for right hand\n");
+                hand_choice = sc.nextInt();
 
-                System.out.println("You chose the right hand\n");
+                if (hand_choice == 0){
+                    System.out.println("\nYou chose the right hand\n");
+                    break;
+                }
+
+                else if (hand_choice == 1) {
+                    System.out.println("\nYou chose the left hand\n");
+                    break;
+                }
+
+                // checking if user input is not 1 or 0
+                else if (hand_choice != 1 || hand_choice != 0){
+                    System.out.println("\nInsert Valid Number (0 or 1)\n");
+                }
+
+                else flag_2 = false; 
             }
+            
+            while (flag_3){
 
-            else if (randomNum == 1) {
+                System.out.println("Guess what hand the thimble is in. Insert 1 for left hand and 0 for right hand.\n");
+                Random rand = new Random();
+                randomNum = rand.nextInt(max_num);
 
-                System.out.println("You chose the left hand\n");
+                if (randomNum == 0){
+                    System.out.println("You chose the right hand\n");
+                    break;
+                }
+
+                else if (randomNum == 1) {
+                    System.out.println("You chose the left hand\n");
+                    break;
+                }
+
+                // checking if random computer choice is not 0 or 1
+                else if (randomNum != 0 || randomNum != 1){
+                    System.out.println("\nInsert Valid Number (0 or 1)\n");
+                }
+
+                else flag_3 = false;
+                sc.close();
             }
-
-
-
+            
+            
+            // await response from client for clarification on display messages
             if (randomNum == hand_choice){
-
                 System.out.println("User1 loses\n");
                 computer_points++;
-
             }
 
             else if (randomNum != hand_choice){
-
                 System.out.println("User1 wins a point\n");
                 user_points++;
-
             }
 
-            System.out.println("User has " + user_points + "points and Computer has " + computer_points + "points\n");
-           
+            System.out.println("User has " + user_points + " points and Computer has " + computer_points + " points\n");
+                
+            int majority_points = (int)(Math.ceil((double)number_rounds / 2));
 
-        
-            int majority_points = (int)(Math.ceil(number_rounds / 2));
-
-            if (user_points == majority_points){
-
+            if (user_points >= majority_points){
                 System.out.println("You Win Thimble Picking Game\n");
-
             }
 
-            else if (computer_points == majority_points){
-
+            else if (computer_points >= majority_points){
                 System.out.println("You Lose Thimble Picking Game\n");
-
             }
-
         }
-
-        
-
-
-        
-
-
-        // A02 @S06 User1 inserts a number other than 1 or 0 when choosing left or right.
-        // A02.1: Display “Insert Valid Number (0 or 1):”. Go back to S06.
-
-
-        // A03: @S09 User2 inserts a number other than 1 or 0 when choosing left or right.
-        // A03.1: Display “Insert Valid Number (0 or 1): ”. Go back to S09.
-
-    
-
     }
-
-
 }
