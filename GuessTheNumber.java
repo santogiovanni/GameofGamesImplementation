@@ -15,9 +15,7 @@ public class GuessTheNumber{
 
             if(range <= 1){
                 System.out.println("Insert Number Bigger Than 1");
-            } else{
-                continue;
-            }
+            } 
         }
         
         while(numToGuess > 1){
