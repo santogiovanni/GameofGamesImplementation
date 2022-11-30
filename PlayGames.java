@@ -3,7 +3,7 @@
 * CS340
 *
 * @author Kiet Ha
-* @version 1.0.3b
+* @version 1.0.4b
 * @11/28/2022
 *
 */
@@ -13,6 +13,7 @@
 // 2. Add methods to call the games
 // 3. Error case for invalid input (DONE)
 // 4. TIE CASE (DONE)
+// 5. Duplicate if statments?
 
 import java.util.*;
 import java.io.IOException;
@@ -40,7 +41,7 @@ public class PlayGames extends GetInput {
       int num = playGamesInput();
       switch (num) {
         case 1:
-          ThimblePicking.main(null);
+          ThimblePicking.main(null); //calling the main method in each class with null as argument
           break;
         case 2:
           CoinFlip.main(null);
@@ -49,7 +50,7 @@ public class PlayGames extends GetInput {
           System.out.println(guess);
           break;
         case 4:
-          System.out.println(eao);
+          EvenOdd.main(null);
           break;
         case 5:
           System.out.println(red);
