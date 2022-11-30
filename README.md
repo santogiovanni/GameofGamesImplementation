@@ -8,8 +8,8 @@ Java classes for each game of games implemented
 **Below are the games for the games of games**
 
 ## Thimble Picking
-> Choose which hand the thimble is in
-> ThimblePicking.java is an extension of PlayGames.java
+> Choose which hand the thimble is in  
+> ThimblePicking.java is an extension of PlayGames.java  
 
 ## Coin Toss
 > Guess the correct side the coin lands on
