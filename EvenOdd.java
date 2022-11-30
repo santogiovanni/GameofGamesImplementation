@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class EvenOdd{
+public class EvenOdd extends PlayGames {
 
     //Method hold the game for Even & Odd
     public static void game(){
@@ -57,7 +57,7 @@ public class EvenOdd{
             Random rand = new Random(); //instance of random class
             int upperbound = 6;
             int lowerbound = 1;
-            int cpuNum = rand.nextInt(lowerbound,upperbound); 
+            int cpuNum = rand.nextInt(lowerbound,upperbound);
 
             //chosen integer for user and computer is printed
             System.out.println("Player 1 picked "+userNum+"\n");
@@ -105,10 +105,12 @@ public class EvenOdd{
             //if true user/computer wins and loop is exited
             if(userPts>target){
                 System.out.println("You Win Even and Odd Game\n");
+                globalUserPts++;
                 break;
             }
             if(cpuPts>target){
                 System.out.println("You Lose Even and Odd Game\n");
+                globalComputerPts++;
                 break;
             }
 
@@ -119,7 +121,7 @@ public class EvenOdd{
 
     public static void main(String args[]) {
         //directions are printed in main on how to play the game
-        System.out.println("Players decide a number of rounds to play to the best of. In the first round, User 1 will decide if he is ‘even’ or ‘odd’, and the other user will be assigned the unpicked option. The users will remain with their original choice for the whole game. Then, both users pick a number between 1 and 5 inclusive. If the sum is even, the player who is ‘even’ gains a point; if it’s odd, the ‘odd’ player gains a point. Whoever reaches the target number of points first is the winner!\n");
+        System.out.println("\nPlayers decide a number of rounds to play to the best of. In the first round, User 1 will decide if he is ‘even’ or ‘odd’, and the other user will be assigned the unpicked option. The users will remain with their original choice for the whole game. Then, both users pick a number between 1 and 5 inclusive. If the sum is even, the player who is ‘even’ gains a point; if it’s odd, the ‘odd’ player gains a point. Whoever reaches the target number of points first is the winner!\n");
         //game is called
         game();
     }
