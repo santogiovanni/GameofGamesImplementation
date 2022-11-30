@@ -3,7 +3,7 @@
 * CS340
 *
 * @author Kiet Ha
-* @version 1.0.1b
+* @version 1.0.3b
 * @11/28/2022
 *
 */
@@ -18,6 +18,7 @@ import java.util.*;
 import java.io.IOException;
 
 public class PlayGames extends GetInput {
+  /* Instance variables */
   static String thimble = "Thimble Picking";
   static String coin = "Coin Toss";
   static String guess = "Guess the Number";
@@ -26,6 +27,7 @@ public class PlayGames extends GetInput {
   static int globalUserPts = 0;
   static int globalComputerPts = 0;
 
+  /* Driver method */
   public static void main(String args[]) throws IOException {
     boolean flag = true;
 
@@ -38,10 +40,10 @@ public class PlayGames extends GetInput {
       int num = playGamesInput();
       switch (num) {
         case 1:
-          System.out.println(thimble); //Using s.o.p instead of calling the game for beta version
+          ThimblePicking.main(null);
           break;
         case 2:
-          CoinFlip.main();
+          CoinFlip.main(null);
           break;
         case 3:
           System.out.println(guess);
@@ -64,12 +66,14 @@ public class PlayGames extends GetInput {
           System.out.println("Thanks for participating in Game of Games. The winner is player with points "+ globalUserPts + "... Bye!\n");
         else if (globalComputerPts > globalUserPts)
           System.out.println("Thanks for participating in Game of Games. The winner is computer with points "+ globalComputerPts + "... Bye!\n");
-        flag = false;
+
+        flag = false; //exiting loop when they choose N (stop playing the game)
       }
-      else System.out.println("Enter the number of the game you want to play as an integer between 1-5: ");
+      else System.out.println("Enter the number of the game you want to play as an integer between 1-5: "); //otherwise we reprompt them
     }
   }
 
+ //This method is used to convert whatever game they chose in an integer to a title of the game in a string (could also be done with ENUM)
   public static String intToGame(int num) {
     switch (num) {
       case 1:
