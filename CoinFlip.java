@@ -11,18 +11,7 @@ public class CoinFlip extends PlayGames {
 
         //scanner object is created to get input from the user
         Scanner obj = new Scanner(System.in);
-        int numRounds;
-
-        //user is asked how many rounds they want to play and their input is saved
-        System.out.println("How many rounds do you want to play ? You will play to the best of that number of rounds. Number of rounds must be odd.\n");
-        numRounds = obj.nextInt();
-
-        //while loop occurs if specifications for the number of rounds is not met
-        while(numRounds < 1 || (numRounds%2) == 0){
-            System.out.println("Insert Positive and Odd Integer\n");
-
-            numRounds = obj.nextInt();
-        }
+        int numRounds = GetInput.PosAndOddInput();
 
         //target of wins created for number of
         //if win total exceeds this number, player or computer wins
