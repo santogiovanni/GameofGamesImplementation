@@ -9,10 +9,10 @@
 */
 
 //TO DO:
-// 1. Add global score for user and computer
+// 1. Add global score for user and computer (DONE)
 // 2. Add methods to call the games
 // 3. Error case for invalid input (DONE)
-// 4. TIE CASE
+// 4. TIE CASE (DONE)
 
 import java.util.*;
 import java.io.IOException;
@@ -23,6 +23,8 @@ public class PlayGames extends GetInput {
   static String guess = "Guess the Number";
   static String eao = "Even and Odd";
   static String red = "Find the Red Thread";
+  static int globalUserPts = 0;
+  static int globalComputerPts = 0;
 
   public static void main(String args[]) throws IOException {
     boolean flag = true;
@@ -39,7 +41,7 @@ public class PlayGames extends GetInput {
           System.out.println(thimble); //Using s.o.p instead of calling the game for beta version
           break;
         case 2:
-          System.out.println(coin);
+          CoinFlip.main();
           break;
         case 3:
           System.out.println(guess);
@@ -51,10 +53,17 @@ public class PlayGames extends GetInput {
           System.out.println(red);
           break;
       }
-      System.out.println("Thanks for playing " + intToGame(num) + ". Do you want to play another game (Y/N - case sensitive)?: ");
+      System.out.println("\nThanks for playing " + intToGame(num) + ". Do you want to play another game (Y/N - case sensitive)?: ");
+
       if (quittingGame().equals("N")) {
-        System.out.println("Congratulations. Player/Computer won with # Points.");
-        System.out.println("Thanks for participating in Game of Games. The winner is player/computer with points #. Bye!\n");
+        if (globalUserPts > globalComputerPts) System.out.println("\nCongratulations. User 1 won with " + globalUserPts + " Points.");
+        else if (globalComputerPts > globalUserPts) System.out.println("\nCongratulations. Computer won with " + globalComputerPts + " Points.");
+        else System.out.println("Thanks for participating in the Games of Games. The players are tied with " + globalUserPts + " points each. Bye!");
+
+        if (globalUserPts > globalComputerPts)
+          System.out.println("Thanks for participating in Game of Games. The winner is player with points "+ globalUserPts + "... Bye!\n");
+        else if (globalComputerPts > globalUserPts)
+          System.out.println("Thanks for participating in Game of Games. The winner is computer with points "+ globalComputerPts + "... Bye!\n");
         flag = false;
       }
       else System.out.println("Enter the number of the game you want to play as an integer between 1-5: ");
@@ -74,6 +83,6 @@ public class PlayGames extends GetInput {
       case 5:
         return red;
     }
-    return ""; //this won't ever happen cause input is checked in GetInput()
+    return null; //this won't ever happen cause input is checked in GetInput()
   }
 }
