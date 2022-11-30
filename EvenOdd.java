@@ -11,17 +11,8 @@ public class EvenOdd extends PlayGames {
 
         //scanner is created to read input values
         Scanner obj = new Scanner(System.in);
-        int numRounds;
-
-        //user is prompted to pick a number of total rounds
-        System.out.println("How many rounds do you want to play ? You will play to the best of that number of rounds. Number of rounds must be odd.\n");
-        numRounds = obj.nextInt();
-
-        //while loop occurs if specifications for round are not met
-        while(numRounds < 1 || (numRounds%2) == 0){
-            System.out.println("Insert Positive and Odd Integer\n");
-            numRounds = obj.nextInt();
-        }
+        int numRounds = int numRounds = GetInput.PosAndOddInput();
+        
         //target integer created, if user score exceeds this value, they win
         int target = numRounds/2;
 
