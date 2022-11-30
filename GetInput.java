@@ -3,7 +3,7 @@
 * CS340
 *
 * @author Kiet Ha
-* @version 1.0.0b
+* @version 1.0.1b
 * @11/28/2022
 *
 */
@@ -11,6 +11,7 @@
 import java.util.Scanner;
 
 public class GetInput {
+
   public static int playGamesInput() {
    Scanner s = new Scanner(System.in);
    while (true) {
@@ -31,10 +32,23 @@ public class GetInput {
      if (quit.equals("Y") || quit.equals("N")) {
        return quit;
      }
-     else {
+     else { //if it isn't Y or N
        System.out.println("Please enter “Y” or “N” (case sensitive): ");
        quit = s.nextLine();
      }
    }
  }
+
+ public static int PosAndOddInput() {
+   Scanner s = new Scanner(System.in);
+   System.out.println("How many rounds do you want to play ? You will play to the best of that number of rounds. Number of rounds must be odd.\n");
+   int numRounds = s.nextInt();
+   //while loop occurs if specifications for round are not met
+   while(numRounds < 1 || (numRounds%2) == 0){
+       System.out.println("Insert Positive and Odd Integer\n");
+       numRounds = s.nextInt();
+   }
+   return numRounds;
+ }
+
 }
