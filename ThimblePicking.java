@@ -24,22 +24,10 @@ public class ThimblePicking extends PlayGames {
         Scanner sc = new Scanner(System.in);
 
         int min_num_rounds = 1;
-        int number_rounds = 0;
         int user_points = 0;
         int computer_points = 0;
-        boolean flag_1 = true;
 
-        while (flag_1) {
-
-            System.out.println("How many rounds do you want to play ? You will play to the best of that number of rounds. Number of rounds must be odd.\n");
-            number_rounds = sc.nextInt();
-
-            // checking for negative number or even input
-            if (number_rounds < min_num_rounds || number_rounds % 2 == 0){
-                System.out.println("\nInsert Positive and Odd Integer\n");
-            }
-            else flag_1 = false;
-        }
+        int number_rounds = GetInput.PosAndOddInput(); //getting input
 
         for (int i=1; i<=number_rounds; i++){
 
