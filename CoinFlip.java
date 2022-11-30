@@ -111,7 +111,7 @@ public class CoinFlip extends PlayGames {
     }
 
     //main used to call the game in flip()
-    public static void main() {
+    public static void main(String args[]) {
         //print statement used to explain the rules of the game
         System.out.println("\nUser1 will choose with heads and tails. The computer will generate a random choice. If User1’s choice is correct, User1 receives a point, otherwise User2 receives a point. Follow the instructions that will be displayed as you play. Good Luck!. If playing against computer, use 'computer' instead of 'User2'\n");
         flip();
