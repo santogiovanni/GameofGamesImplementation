@@ -56,8 +56,27 @@ public class GuessTheNumber{
         //this portion of the program will perform the guessing game where the computer "player 2" will atempt to guess the number player 1 chose
         Random rand = new Random();
         int randNum = rand.nextInt(range);
-        System.out.println("The range is 1 to x. You have got y attempts. Insert a guess within the range.");
-        System.out.println("num to guess " + numToGuess + " rand num " + randNum);
+        boolean gFlag = true;
+        System.out.println("The range is 1 to "+ range +". You have got "+ numOfGuesses +" attempts. Insert a guess within the range.");
+
+        while(gFlag){
+            System.out.println("Player 2 guessed " + randNum);
+            if(randNum == numToGuess){
+                System.out.println("Player 2 wins!");
+                gFlag = false;
+            } else if(numOfGuesses != 0){
+                System.out.println("Wrong guess! You still have attempts left. Guess again!");
+                randNum = rand.nextInt(range);
+            }
+
+            numOfGuesses--;
+
+            if(numOfGuesses == 0){
+                System.out.println("The correct guess is "+ numToGuess +". Player 1 Wins");
+                gFlag = false;
+            }
+        }
+        
 
     
     }
@@ -74,4 +93,3 @@ public class GuessTheNumber{
     }
 
 }
-
