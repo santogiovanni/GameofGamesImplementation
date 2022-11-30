@@ -10,10 +10,10 @@
 
 //TO DO:
 // 1. Add global score for user and computer (DONE)
-// 2. Add methods to call the games
+// 2. Add methods to call the games (1 game left)
 // 3. Error case for invalid input (DONE)
 // 4. TIE CASE (DONE)
-// 5. Duplicate if statments?
+
 
 import java.util.*;
 import java.io.IOException;
@@ -37,6 +37,8 @@ public class PlayGames extends GetInput {
     System.out.println("Here's a list of avaliable games:\n 1. Thimble Picking \n 2. Coin Toss \n 3. Guess the Number \n 4. Even and Odd \n 5. Find the Red Thread \n");
     System.out.println("Enter the number of the game you want to play as an integer between 1-5: ");
 
+    /* This while loop is used to call the games and continue 
+    calling games if the user wants to continue playing */
     while (flag) {
       int num = playGamesInput();
       switch (num) {
@@ -47,7 +49,7 @@ public class PlayGames extends GetInput {
           CoinFlip.main(null);
           break;
         case 3:
-          System.out.println(guess);
+          GuessTheNumber.main(null);
           break;
         case 4:
           EvenOdd.main(null);
@@ -56,7 +58,7 @@ public class PlayGames extends GetInput {
           System.out.println(red);
           break;
       }
-      System.out.println("\nThanks for playing " + intToGame(num) + ". Do you want to play another game (Y/N - case sensitive)?: ");
+      System.out.println("\n\nThanks for playing " + intToGame(num) + ". Do you want to play another game (Y/N - case sensitive)?: ");
 
       if (quittingGame().equals("N")) {
         if (globalUserPts > globalComputerPts) System.out.println("\nCongratulations. User 1 won with " + globalUserPts + " Points.");
@@ -88,6 +90,6 @@ public class PlayGames extends GetInput {
       case 5:
         return red;
     }
-    return null; //this won't ever happen cause input is checked in GetInput()
+    return null; //this WON'T ever happen cause input is checked in GetInput()
   }
 }
