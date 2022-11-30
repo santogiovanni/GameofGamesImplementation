@@ -9,6 +9,7 @@
 
 import java.io.*;
 import java.util.Scanner;
+import java.util.Random;
 
 public class FindTheRedThread {
 
@@ -21,9 +22,10 @@ public class FindTheRedThread {
         int user_input = 0;
         int min_threads = 1;
         int max_threads = 10;
-        boolean flag = true;
+        int total_threads = 20;
+        boolean flag_1 = true;
 
-        while (flag){
+        while (flag_1){
 
             System.out.println("Enter the maximum number of threads that can be picked at once as a positive integer never bigger than 10: \n");
             user_input = sc.nextInt();
@@ -32,27 +34,82 @@ public class FindTheRedThread {
                 System.out.println("\nInvalid input. Enter a positive integer less than (half the total number of threads)\n");
             }
 
-            else flag = false;
+            else flag_1 = false;
         }
 
-        
-        
-        // S02: Ask user1 picks thread/s from the box by displaying “Player 1 pick threads”
-        System.out.println("Player 1 pick threads\n");
-
-
-        // A02: @AS02 or @S04 User picks invalid number of threads
-        // A02.1: Go back to @AS02 or @S04
-
-        
-
-        // S03: If it’s the red one, player 1 wins. Display “Player 1 won.”
-
-        // S04: If not, ask player 2 to pick the threads by displaying “Player 2 pick the threads: ” S05: If it’s the red one, player 2 wins. Display “Player 2 won.”
-
-        // S06: End “Find the Red Thread” game. And go back to the master branch @S04
+        // generating one random number out of 20 spools to represent red thread
+        Random rand = new Random();
+        int red_thread = rand.nextInt(total_threads) + 1;
+        System.out.println(red_thread);
 
 
 
+        // User guesses values in range
+
+        boolean flag_2 = true;
+        int[] user1_guesses = new int[user_input];
+
+        while (flag_2){
+
+            System.out.println("Player 1 pick threads: \n");
+
+            for (int i=0; i<user_input; i++){
+
+                user1_guesses[i] = sc.nextInt();
+
+
+                // A02: @AS02 or @S04 User picks invalid number of threads
+                // A02.1: Go back to @AS02 or @S04
+
+                if (user1_guesses[i] < min_threads || user1_guesses[i] > total_threads){
+
+
+                }
+
+                else {
+
+                    if (user1_guesses[i] == red_thread){
+                        System.out.println("Player 1 won.");
+                        flag_2 = false;
+                        break;
+                    }   
+                }
+            }
+        }
+
+
+
+        // Computer randomly generates values
+
+        boolean flag_3 = true;
+        int[] computer_guesses = new int[user_input];
+
+        while (flag_3){
+
+            System.out.println("Player 2 pick the threads: \n");
+
+            for (int i=1; i<=user_input; i++){
+
+                computer_guesses[i] = rand.nextInt(total_threads) + 1;
+
+                if (computer_guesses[i] < min_threads || computer_guesses[i] > total_threads){
+
+
+                }
+
+                else {
+
+                    if (computer_guesses[i] == red_thread){
+
+                        System.out.println("Player 2 won.");
+                        flag_3 = false;
+                        // break;
+                    }
+                }
+            } 
+        }
+
+    
+       // S06: End “Find the Red Thread” game. And go back to the master branch @S04
     }
 }
