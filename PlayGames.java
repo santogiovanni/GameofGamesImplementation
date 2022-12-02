@@ -3,7 +3,7 @@
 * CS340
 *
 * @author Kiet Ha
-* @version 1.0.7b
+* @version 2.0
 * @11/28/2022
 *
 */
@@ -13,7 +13,7 @@
 // 2. Add methods to call the games (DONE)
 // 3. Error case for invalid input (DONE)
 // 4. TIE CASE (DONE)
-// 5. Adding global score to test modes, bugs modes
+// 5. Adding global score to test modes, bugs modes (DONE)
 
 
 import java.util.*;
@@ -21,11 +21,11 @@ import java.io.IOException;
 
 public class PlayGames extends GetInput {
   /* Instance variables */
-  static String thimble = "Thimble Picking";
-  static String coin = "Coin Toss";
-  static String guess = "Guess the Number";
-  static String eao = "Even and Odd";
-  static String red = "Find the Red Thread";
+  private static String thimble = "Thimble Picking";
+  private static String coin = "Coin Toss";
+  private static String guess = "Guess the Number";
+  private static String eao = "Even and Odd";
+  private static String red = "Find the Red Thread";
   static int globalUserPts = 0;
   static int globalComputerPts = 0;
 
@@ -59,7 +59,7 @@ public class PlayGames extends GetInput {
           FindTheRedThread.main(null);
           break;
       }
-      System.out.println("\n\nThanks for playing " + intToGame(num) + ". Do you want to play another game (Y/N - case sensitive)?: ");
+      System.out.println("\nThanks for playing " + intToGame(num) + ". Do you want to play another game (Y/N - case sensitive)?: ");
 
       if (quittingGame().equals("N")) {
         if (globalUserPts > globalComputerPts) System.out.println("\nCongratulations. User 1 won with " + globalUserPts + " Points.");
@@ -78,7 +78,7 @@ public class PlayGames extends GetInput {
   }
 
  //This method is used to convert whatever game they chose in an integer to a title of the game in a string (could also be done with ENUM)
-  public static String intToGame(int num) {
+  private static String intToGame(int num) {
     switch (num) {
       case 1:
         return thimble;
