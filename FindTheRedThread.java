@@ -1,23 +1,23 @@
 /**
  * CPSC 340: Software Engineering
  * Game 5: Find the Red Thread
- * 
+ *
  * @author Stephen Antogiovanni
- * @version 1.0
+ * @version 1.4
  * @since 11/29/2022
- */ 
+ */
 
 import java.io.*;
 import java.util.Scanner;
 import java.util.Random;
 
-public class FindTheRedThread {
+public class FindTheRedThread extends PlayGames {
 
     public static void main(String args[]) throws IOException {
 
         System.out.println("There are 20 spools in the box. Only one is red. User 1 will pick the specified maximum number of spools (never bigger than 10).\n");
         System.out.println("Users will keep picking threads from the box until they pick this red thread. Whoever picks it, wins this game. Good luck!\n");
-        
+
         Scanner sc = new Scanner(System.in);
         int user_input = 0;
         int min_threads = 1;
@@ -41,7 +41,6 @@ public class FindTheRedThread {
         // generating one random number out of 20 spools to represent red thread
         Random rand = new Random();
         int red_thread = rand.nextInt(total_threads) + 1;
-        System.out.println("\nRed thread value: " + red_thread + "\n");
 
 
         // outer while loop to keep game in progress if red thread is not found
@@ -58,7 +57,7 @@ public class FindTheRedThread {
                 System.out.println("Player 1 pick threads: \n");
 
                 for (int i=0; i<user_input; i++){
-                    
+
                     user1_guesses[i] = sc.nextInt();
 
                     // checking if guess is valid or not (below min or above max)
@@ -67,7 +66,7 @@ public class FindTheRedThread {
                         // check if invalid guess is the last guess of the max. number of threads that can be pulled at once
                         if (i+1 == user_input){
                             flag_2 = false;
-                            break; 
+                            break;
                         }
 
                         else {
@@ -78,12 +77,13 @@ public class FindTheRedThread {
 
                     // if user guess is the red thread
                     else if (user1_guesses[i] == red_thread) {
-                        
+
                         System.out.println("\nPlayer 1 won.");
                         flag_2 = false;
                         flag_3 = false;
                         outer_flag = false;
-                        break;                
+                        globalUserPts++;
+                        break;
                     }
 
                     else flag_2 = false;
@@ -112,11 +112,12 @@ public class FindTheRedThread {
                         System.out.println("Computer won.");
                         flag_3 = false;
                         outer_flag = false;
+                        globalComputerPts++;
                         break;
                     }
 
                     else flag_3 = false;
-                } 
+                }
             }
         }
 
