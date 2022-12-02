@@ -40,11 +40,11 @@ public class FindTheRedThread {
         // generating one random number out of 20 spools to represent red thread
         Random rand = new Random();
         int red_thread = rand.nextInt(total_threads) + 1;
-        System.out.println(red_thread);
+        System.out.println("\nRed thread value: " + red_thread + "\n");
 
 
 
-        // User guesses values in range
+        // USER GUESSES VALUES IN RANGE
 
         boolean flag_2 = true;
         int[] user1_guesses = new int[user_input];
@@ -57,29 +57,29 @@ public class FindTheRedThread {
 
                 user1_guesses[i] = sc.nextInt();
 
-
                 // A02: @AS02 or @S04 User picks invalid number of threads
                 // A02.1: Go back to @AS02 or @S04
 
                 if (user1_guesses[i] < min_threads || user1_guesses[i] > total_threads){
 
-
+                    System.out.println("\nPlayer 1 pick threads: \n");
+                    continue;
                 }
 
-                else {
-
-                    if (user1_guesses[i] == red_thread){
-                        System.out.println("Player 1 won.");
-                        flag_2 = false;
-                        break;
-                    }   
+                else if (user1_guesses[i] == red_thread) {
+                    
+                    System.out.println("Player 1 won.");
+                    flag_2 = false;
+                    break;                
                 }
+
+                else flag_2 = false;
             }
         }
 
 
 
-        // Computer randomly generates values
+        // COMPUTER RANDOMLY GENERATES VALUES
 
         boolean flag_3 = true;
         int[] computer_guesses = new int[user_input];
@@ -88,24 +88,24 @@ public class FindTheRedThread {
 
             System.out.println("Player 2 pick the threads: \n");
 
-            for (int i=1; i<=user_input; i++){
+            for (int i=0; i<user_input; i++){
 
                 computer_guesses[i] = rand.nextInt(total_threads) + 1;
 
                 if (computer_guesses[i] < min_threads || computer_guesses[i] > total_threads){
 
-
+                    System.out.println("\nPlayer 2 pick the threads: \n");
+                    continue;
                 }
 
-                else {
+                else if (computer_guesses[i] == red_thread){
 
-                    if (computer_guesses[i] == red_thread){
-
-                        System.out.println("Player 2 won.");
-                        flag_3 = false;
-                        // break;
-                    }
+                    System.out.println("Player 2 won.");
+                    flag_3 = false;
+                    break;
                 }
+
+                else flag_3 = false;
             } 
         }
 
