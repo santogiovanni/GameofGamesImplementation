@@ -1,3 +1,11 @@
+/*
+*
+* @author Michael Monti
+* @version 1.0.1b
+* @12/2/2022
+*
+*/
+
 import java.util.Scanner;
 import java.util.Random;
 
