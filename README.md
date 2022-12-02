@@ -5,7 +5,7 @@
 # Game of Games Implementation
 **Below are .java classes for each game of games implemented and their respective variation** 
 
-# _ _PLAYER MODES
+# _PLAYER MODES_
 
 ## ThimblePicking.java
 > File contains thimble picking game in player mode between user and computer  
@@ -23,7 +23,7 @@
 > File contains find the red thread game in player mode between user and computer  
 
 
-# _ _TEST MODES
+# _TEST MODES_
 
 ## ThimblePickingTestMode.java
 > File contains thimble picking game in test mode between user and computer  
@@ -46,31 +46,31 @@
 > Added print statements are included for testing game functionality
 
 
-# _ _BUG MODES
+# _BUG MODES_
 
 ## ThimblePickingBugMode.java
 > File contains thimble picking game in bug mode between user and computer  
-> Added print statements are included for testing game functionality
+> Added print statements are included for testing game functionality  
 > 3 bugs in code to test against the test cases
  
 ## CoinFlipBugMode.java
 > File contains coin toss game in bug mode between user and computer  
-> Added print statements are included for testing game functionality
+> Added print statements are included for testing game functionality  
 > 3 bugs in code to test against the test cases
 
 ## GuessTheNumberBugMode.java
 > File contains guess the number game in bug mode between user and computer  
-> Added print statements are included for testing game functionality
+> Added print statements are included for testing game functionality  
 > 3 bugs in code to test against the test cases
 
 ## EvenOddBugMode.java
 > File contains even and odd game in bug mode between user and computer  
-> Added print statements are included for testing game functionality
+> Added print statements are included for testing game functionality  
 > 3 bugs in code to test against the test cases
 
 ## FindTheRedThreadBugMode.java
 > File contains find the red thread game in bug mode between user and computer  
-> Added print statements are included for testing game functionality
+> Added print statements are included for testing game functionality  
 > 3 bugs in code to test against the test cases
 
 
