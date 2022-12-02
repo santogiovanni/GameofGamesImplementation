@@ -3,9 +3,7 @@
 
 
 # Game of Games Implementation
-Java classes for each game of games implemented and their respective variation
-
-**Below are the games for the games of games**
+**Below are .java classes for each game of games implemented and their respective variation** 
 
 # PLAYER MODES
 
