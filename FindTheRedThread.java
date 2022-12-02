@@ -24,6 +24,7 @@ public class FindTheRedThread {
         int max_threads = 10;
         int total_threads = 20;
         boolean flag_1 = true;
+        boolean outer_flag = true;
 
         while (flag_1){
 
@@ -43,73 +44,82 @@ public class FindTheRedThread {
         System.out.println("\nRed thread value: " + red_thread + "\n");
 
 
+        // outer while loop to keep game in progress if red thread is not found
+        while (outer_flag){
 
-        // USER GUESSES VALUES IN RANGE
+            boolean flag_2 = true;
+            boolean flag_3 = true;
+            int[] user1_guesses = new int[user_input];
+            int[] computer_guesses = new int[user_input];
 
-        boolean flag_2 = true;
-        int[] user1_guesses = new int[user_input];
+            // USER GUESSES VALUES IN RANGE
+            while (flag_2){
 
-        while (flag_2){
+                System.out.println("Player 1 pick threads: \n");
 
-            System.out.println("Player 1 pick threads: \n");
-
-            for (int i=0; i<user_input; i++){
-
-                user1_guesses[i] = sc.nextInt();
-
-                // A02: @AS02 or @S04 User picks invalid number of threads
-                // A02.1: Go back to @AS02 or @S04
-
-                if (user1_guesses[i] < min_threads || user1_guesses[i] > total_threads){
-
-                    System.out.println("\nPlayer 1 pick threads: \n");
-                    continue;
-                }
-
-                else if (user1_guesses[i] == red_thread) {
+                for (int i=0; i<user_input; i++){
                     
-                    System.out.println("Player 1 won.");
-                    flag_2 = false;
-                    break;                
-                }
+                    user1_guesses[i] = sc.nextInt();
 
-                else flag_2 = false;
+                    // checking if guess is valid or not (below min or above max)
+                    if (user1_guesses[i] < min_threads || user1_guesses[i] > total_threads){
+
+                        // check if invalid guess is the last guess of the max. number of threads that can be pulled at once
+                        if (i+1 == user_input){
+                            flag_2 = false;
+                            break; 
+                        }
+
+                        else {
+                            System.out.println("\nPlayer 1 pick threads: \n");
+                            continue;
+                        }
+                    }
+
+                    // if user guess is the red thread
+                    else if (user1_guesses[i] == red_thread) {
+                        
+                        System.out.println("\nPlayer 1 won.");
+                        flag_2 = false;
+                        flag_3 = false;
+                        outer_flag = false;
+                        break;                
+                    }
+
+                    else flag_2 = false;
+                }
+            }
+
+            // COMPUTER RANDOMLY GENERATES VALUES
+            while (flag_3){
+
+                System.out.println("\nComputer pick the threads: \n");
+
+                for (int i=0; i<user_input; i++){
+
+                    computer_guesses[i] = rand.nextInt(total_threads) + 1;
+
+                    // checking if computer guess is valid or not (below min or above max)
+                    if (computer_guesses[i] < min_threads || computer_guesses[i] > total_threads){
+
+                        System.out.println("\nComputer pick the threads: \n");
+                        continue;
+                    }
+
+                    // if computer guess is the red thread
+                    else if (computer_guesses[i] == red_thread){
+
+                        System.out.println("Computer won.");
+                        flag_3 = false;
+                        outer_flag = false;
+                        break;
+                    }
+
+                    else flag_3 = false;
+                } 
             }
         }
 
-
-
-        // COMPUTER RANDOMLY GENERATES VALUES
-
-        boolean flag_3 = true;
-        int[] computer_guesses = new int[user_input];
-
-        while (flag_3){
-
-            System.out.println("Player 2 pick the threads: \n");
-
-            for (int i=0; i<user_input; i++){
-
-                computer_guesses[i] = rand.nextInt(total_threads) + 1;
-
-                if (computer_guesses[i] < min_threads || computer_guesses[i] > total_threads){
-
-                    System.out.println("\nPlayer 2 pick the threads: \n");
-                    continue;
-                }
-
-                else if (computer_guesses[i] == red_thread){
-
-                    System.out.println("Player 2 won.");
-                    flag_3 = false;
-                    break;
-                }
-
-                else flag_3 = false;
-            } 
-        }
-
-    
        // S06: End “Find the Red Thread” game. And go back to the master branch @S04
     }
 }
