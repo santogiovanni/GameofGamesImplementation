@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class CoinFlipBugMode /*extends PlayGames*/ {
+public class CoinFlipBugMode extends PlayGames {
 
     //Method called in main is used to run entire game
     public static void flip(){
@@ -110,7 +110,7 @@ public class CoinFlipBugMode /*extends PlayGames*/ {
             //if one of these conditions is true, winner is printed, then the for loop breaks ending the game
             if(userPts>target){
                 System.out.println("You Win Coin Toss Game\n");
-                //globalUserPts++;
+                globalUserPts++;
                 
                 //BUG MODE [3]
                 //Bug occurs if there is not a break statement, loop will run until the end of round instead of majority of games
@@ -118,7 +118,7 @@ public class CoinFlipBugMode /*extends PlayGames*/ {
             }
             if(compPts>target){
                 System.out.println("You Lose Coin Toss Game\n");
-                //globalComputerPts++;
+                globalComputerPts++;
                 break;
             }
 
