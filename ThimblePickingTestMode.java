@@ -1,6 +1,6 @@
 /**
  * CPSC 340: Software Engineering
- * Game 1: Thimble Picking
+ * Game 1: Thimble Picking TEST MODE
  *
  * @author Stephen Antogiovanni
  * @version 1.0
