@@ -1,10 +1,10 @@
 /**
  * CPSC 340: Software Engineering
- * Game 1: Thimble Picking Test Mode
+ * Game 1: Thimble Picking
  *
  * @author Stephen Antogiovanni
  * @version 1.0
- * @since 11/30/2022
+ * @since 11/28/2022
  */
 
 import java.io.*;
@@ -12,7 +12,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.lang.Math;
 
-public class ThimblePickingBugMode extends PlayGames {
+public class ThimblePicking extends PlayGames {
 
     public static void main(String args[]) throws IOException {
 
@@ -24,33 +24,22 @@ public class ThimblePickingBugMode extends PlayGames {
         Scanner sc = new Scanner(System.in);
 
         int min_num_rounds = 1;
-        int number_rounds = 0;
         int user_points = 0;
         int computer_points = 0;
-        boolean flag_1 = true;
 
-        while (flag_1) {
-
-            System.out.println("How many rounds do you want to play ? You will play to the best of that number of rounds. Number of rounds must be odd.\n");
-            number_rounds = sc.nextInt();
-
-            // checking for negative number or even input
-            if (number_rounds < min_num_rounds || number_rounds % 2 == 0){
-                System.out.println("\nInsert Positive and Odd Integer\n");
-            }
-            else flag_1 = false;
-        }
+        int number_rounds = GetInput.PosAndOddInput(); //getting input
 
         for (int i=1; i<=number_rounds; i++){
 
             int hand_choice = 0;
             int randomNum = 0;
-            int max_num = 5;        // CHANGE IS ASSOCIATED WITH BUG 3
+            int max_num = 5;            // CHANGE IS ASSOCIATED WITH BUG 3
             boolean flag_2 = true;
             boolean flag_3 = true;
 
             System.out.println("\nRound " + i + "\n");
 
+            // prompts user to hind the thimble in either left or right hand
             while (flag_2){
 
                 System.out.println("Pick a hand. Insert 1 for left hand and 0 for right hand\n");
@@ -76,10 +65,10 @@ public class ThimblePickingBugMode extends PlayGames {
                 else flag_2 = false;
             }
 
+            // prompts computer to randomly guess what hand thimble is in
             while (flag_3){
 
                 System.out.println("Guess what hand the thimble is in. Insert 1 for left hand and 0 for right hand.\n");
-
                 Random rand = new Random();
 
                 // BUG 3: RANDOM INTEGER IS NOW IN RANGE OF 0-4, NOT IN PREVIOUS RANGE OF 0-1
@@ -105,9 +94,9 @@ public class ThimblePickingBugMode extends PlayGames {
             }
 
 
-            // await response from client for clarification on display messages
+            // check if random guess matches the hand
             if (randomNum == hand_choice){
-                System.out.println("User1 loses\n");
+                System.out.println("Computer wins a point.\n");
                 computer_points++;
             }
 
@@ -116,10 +105,11 @@ public class ThimblePickingBugMode extends PlayGames {
                 user_points++;
             }
 
-            System.out.println("User has " + user_points + " points and Computer has " + computer_points + " points\n");
+            System.out.println("Player 1 has " + user_points + " points and Computer has " + computer_points + " points\n");
 
             int majority_points = (int)(Math.ceil((double)number_rounds / 2));
 
+            // check if majority points have been reached by either user or computer
             if (user_points >= majority_points){
                 System.out.println("You Win Thimble Picking Game\n");
                 globalUserPts++;
@@ -131,6 +121,9 @@ public class ThimblePickingBugMode extends PlayGames {
                 globalComputerPts++;
                 break;
             }
+
+          
+            // S14: End “Thimble Picking” game. And go back to the master branch @S04
         }
     }
 }
