@@ -121,9 +121,6 @@ public class ThimblePicking extends PlayGames {
                 globalComputerPts++;
                 break;
             }
-
-          
-            // S14: End “Thimble Picking” game. And go back to the master branch @S04
         }
     }
 }
