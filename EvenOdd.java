@@ -33,6 +33,12 @@ public class EvenOdd extends PlayGames {
             //round number is displayed
             System.out.println("Round "+i+"\n");
 
+            //random number is genterated for computer for value 1-5
+            Random rand = new Random(); //instance of random class
+            int upperbound = 6;
+            int lowerbound = 1;
+            int cpuNum = rand.nextInt(lowerbound,upperbound);
+            
             //user is prompted to pick a number 1-5
             int userNum;
             System.out.println("Insert a number from 1 to 5\n");
@@ -44,11 +50,6 @@ public class EvenOdd extends PlayGames {
                 userNum = obj.nextInt();
             }
 
-            //random number is genterated for computer for value 1-5
-            Random rand = new Random(); //instance of random class
-            int upperbound = 6;
-            int lowerbound = 1;
-            int cpuNum = rand.nextInt(lowerbound,upperbound);
 
             //chosen integer for user and computer is printed
             System.out.println("Player 1 picked "+userNum+"\n");
