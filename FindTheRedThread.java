@@ -1,6 +1,6 @@
 /**
  * CPSC 340: Software Engineering
- * Game 5: Find the Red Thread
+ * Game 5: Find the Red Thread PLAYER MODE
  *
  * @author Stephen Antogiovanni
  * @version 1.4
@@ -120,7 +120,5 @@ public class FindTheRedThread extends PlayGames {
                 }
             }
         }
-
-       // S06: End “Find the Red Thread” game. And go back to the master branch @S04
     }
 }
