@@ -11,7 +11,7 @@ public class EvenOdd extends PlayGames {
 
         //scanner is created to read input values
         Scanner obj = new Scanner(System.in);
-        int numRounds = int numRounds = GetInput.PosAndOddInput();
+        int numRounds = GetInput.PosAndOddInput();
         
         //target integer created, if user score exceeds this value, they win
         int target = numRounds/2;
