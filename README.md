@@ -5,7 +5,7 @@
 # Game of Games Implementation
 **Below are .java classes for each game of games implemented and their respective variation** 
 
-# PLAYER MODES
+# _ _PLAYER MODES
 
 ## ThimblePicking.java
 > File contains thimble picking game in player mode between user and computer  
@@ -23,7 +23,7 @@
 > File contains find the red thread game in player mode between user and computer  
 
 
-# TEST MODES
+# _ _TEST MODES
 
 ## ThimblePickingTestMode.java
 > File contains thimble picking game in test mode between user and computer  
@@ -38,7 +38,7 @@
 > Added print statements are included for testing game functionality
 
 ## EvenOddTestMode.java
-> File contains even and odd game in test mode between user and computer 
+> File contains even and odd game in test mode between user and computer  
 > Added print statements are included for testing game functionality
 
 ## FindTheRedThreadTestMode.java
@@ -46,7 +46,7 @@
 > Added print statements are included for testing game functionality
 
 
-# BUG MODES
+# _ _BUG MODES
 
 ## ThimblePickingBugMode.java
 > File contains thimble picking game in bug mode between user and computer  
