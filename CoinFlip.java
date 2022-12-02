@@ -21,7 +21,14 @@ public class CoinFlip extends PlayGames {
         for(int i = 1; i<=numRounds; i++){
             //round number is displayed
             System.out.println("Round: " + i + "\n");
-
+            
+            
+            //random number is generated based on coin flip, number is either 0 or 1
+            Random rand = new Random(); //instance of random class
+            int upperbound = 2;
+            int randNum = rand.nextInt(upperbound);
+            
+            
             //user is prompted to pick 1 for heads or 0 for tails
             //input is read and saved in int choice
             int choice;
@@ -44,10 +51,6 @@ public class CoinFlip extends PlayGames {
                 System.out.println("You Choose Heads\n");
             }
 
-            //random number is generated based on coin flip, number is either 0 or 1
-            Random rand = new Random(); //instance of random class
-            int upperbound = 2;
-            int randNum = rand.nextInt(upperbound);
 
             //if random number is 0 tails is correct answer, if number is 1 heads is correct answer
             //if statement checks which random number is chosen
