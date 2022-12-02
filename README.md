@@ -19,7 +19,11 @@ Java classes for each game of games implemented
 > CoinFlip.java is an extension of PlayGames.java 
 
 ## Guess the Number
-> Guess the correct number randomly generated
+> User inputs range that number is in between   
+> User inputs the number to be guessed by computer  
+> User inputs number of attempts computer has to guess  
+> Computer randomly generates integer within range  
+> GuessTheNumber.java is an extension of PlayGames.java
 
 ## Even and Odd
 > Guess whether the sum of 2 players are even or odd 
