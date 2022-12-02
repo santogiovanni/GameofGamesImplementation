@@ -3,16 +3,17 @@
 * CS340
 *
 * @author Kiet Ha
-* @version 1.0.4b
+* @version 1.0.7b
 * @11/28/2022
 *
 */
 
 //TO DO:
 // 1. Add global score for user and computer (DONE)
-// 2. Add methods to call the games (1 game left)
+// 2. Add methods to call the games (DONE)
 // 3. Error case for invalid input (DONE)
 // 4. TIE CASE (DONE)
+// 5. Adding global score to test modes, bugs modes
 
 
 import java.util.*;
@@ -37,7 +38,7 @@ public class PlayGames extends GetInput {
     System.out.println("Here's a list of avaliable games:\n 1. Thimble Picking \n 2. Coin Toss \n 3. Guess the Number \n 4. Even and Odd \n 5. Find the Red Thread \n");
     System.out.println("Enter the number of the game you want to play as an integer between 1-5: ");
 
-    /* This while loop is used to call the games and continue 
+    /* This while loop is used to call the games and continue
     calling games if the user wants to continue playing */
     while (flag) {
       int num = playGamesInput();
@@ -55,7 +56,7 @@ public class PlayGames extends GetInput {
           EvenOdd.main(null);
           break;
         case 5:
-          System.out.println(red);
+          FindTheRedThread.main(null);
           break;
       }
       System.out.println("\n\nThanks for playing " + intToGame(num) + ". Do you want to play another game (Y/N - case sensitive)?: ");
