@@ -39,6 +39,7 @@ public class ThimblePicking extends PlayGames {
 
             System.out.println("\nRound " + i + "\n");
 
+            // prompts user to hind the thimble in either left or right hand
             while (flag_2){
 
                 System.out.println("Pick a hand. Insert 1 for left hand and 0 for right hand\n");
@@ -62,6 +63,7 @@ public class ThimblePicking extends PlayGames {
                 else flag_2 = false;
             }
 
+            // prompts computer to randomly guess what hand thimble is in
             while (flag_3){
 
                 System.out.println("Guess what hand the thimble is in. Insert 1 for left hand and 0 for right hand.\n");
@@ -88,9 +90,9 @@ public class ThimblePicking extends PlayGames {
             }
 
 
-            // await response from client for clarification on display messages
+            // check if random guess matches the hand
             if (randomNum == hand_choice){
-                System.out.println("User1 loses\n");
+                System.out.println("Computer wins a point.\n");
                 computer_points++;
             }
 
@@ -99,10 +101,11 @@ public class ThimblePicking extends PlayGames {
                 user_points++;
             }
 
-            System.out.println("User has " + user_points + " points and Computer has " + computer_points + " points\n");
+            System.out.println("Player 1 has " + user_points + " points and Computer has " + computer_points + " points\n");
 
             int majority_points = (int)(Math.ceil((double)number_rounds / 2));
 
+            // check if majority points have been reached by either user or computer
             if (user_points >= majority_points){
                 System.out.println("You Win Thimble Picking Game\n");
                 globalUserPts++;
@@ -114,6 +117,9 @@ public class ThimblePicking extends PlayGames {
                 globalComputerPts++;
                 break;
             }
+
+          
+            // S14: End “Thimble Picking” game. And go back to the master branch @S04
         }
     }
 }
