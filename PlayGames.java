@@ -8,13 +8,6 @@
 *
 */
 
-//TO DO:
-// 1. Add global score for user and computer (DONE)
-// 2. Add methods to call the games (DONE)
-// 3. Error case for invalid input (DONE)
-// 4. TIE CASE (DONE)
-// 5. Adding global score to test modes, bugs modes (DONE)
-
 
 import java.util.*;
 import java.io.IOException;
