@@ -1,9 +1,9 @@
 /*
-* GetInput.java: Bunch of methods to gets input from the user, insuring that the input is valid (correct type and in the value range specified)
+* GetInput.java: Methods to gets input from the user, insuring that the input is valid (correct type and in the value range specified)
 * CS340
 *
 * @author Kiet Ha
-* @version 1.0.1b
+* @version 1.1
 * @11/28/2022
 *
 */
